@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Assistant</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function() {
+    // Detect 'Enter' key in the input field
+    $("#user_input").keypress(function(e) {
+        if (e.which == 13 && !e.shiftKey) { // Check for 'Enter' key without 'Shift' key
+            e.preventDefault(); // Prevent the default action (new line)
+            $("#chatForm").submit(); // Trigger form submission
+        }
+    });
+
+    // Handle form submission (works for both Enter key and submit button)
+    $("#chatForm").on("submit", function(e) {
+        e.preventDefault(); // Prevent default form submission
+        var userInput = $("#user_input").val().trim(); // Get and trim user input
+        if (userInput !== "") { // Only proceed if input is not empty
+            $.post("/chat", { user_input: userInput }, function(data) {
+                $("#chat_history").append("<p><b>You:</b> " + userInput + "</p>");
+                $("#chat_history").append("<p><b>Bot:</b> " + data + "</p>");
+                $("#user_input").val(""); // Clear input field
+                $("#chat_history").scrollTop($("#chat_history")[0].scrollHeight); // Auto-scroll to bottom
+            });
+        }
+    });
+});
+    </script>
+    <style>
+            body {
+            background-color: #121317;
+            color: antiquewhite;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: antiquewhite;
+            font-size: 4rem;
+            text-align: center;
+            margin-top: 20px;
+        }
+        label {
+            color: antiquewhite;
+            font-size: 25px;
+            margin-bottom: 10px;
+            display: block;
+            text-align: center;
+        }
+        textarea {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none; /* Remove the default outline */
+            resize: vertical; /* Allows vertical resize */
+            max-height: 150px; /* Limits the textarea resizing */
+            min-height: 50px; /* Minimum height */
+            line-height: 1.5; /* Space between lines */
+            overflow-y: scroll; /* Add vertical scroll bar */
+            display: block;
+            margin: 0 auto;
+        }
+        button {
+            background-color: #18f98f;
+            border: none;
+            padding: 10px 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 10px auto;
+        }
+        #chat_history {
+            width: 90%; /* Set width to almost full screen */
+            height: 70vh; /* Set height to 70% of the viewport height */
+            overflow-y: auto;
+            margin: 20px auto;
+            padding: 20px;
+            color: antiquewhite;
+            background-color: transparent; /* No background color */
+            white-space: pre-wrap; /* Preserves newlines and spaces */
+            word-wrap: break-word; /* Breaks long words onto the next line */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi Buddy! Let's Learn Together</h1>
+    
+    <!-- Chat history box moved above the input form -->
+    <div id="chat_history">
+        <!-- Chat history will be displayed here -->
+    </div>
+
+    <form id="chatForm">
+        <label for="user_input">Enter your query:</label>
+        <textarea id="user_input" name="user_input" autocomplete="off"></textarea><br><br>
+        <button type="submit">Send</button>
+    </form>
+    
+</body>
+</html>
