@@ -1,9 +1,10 @@
 # Welcome to the SortMaster Chatbot Project
 An interactive virtual assistant designed to teach Selection Sort in an intuitive and engaging manner. This chatbot leverages advanced AI prompt engineering to guide users through sorting concepts, providing code implementations in any programming language and even troubleshooting errors.
-![Screenshot (14)](https://github.com/user-attachments/assets/ce586e69-1953-4b6a-acf2-042e896c883d)
-![Screenshot (15)](https://github.com/user-attachments/assets/61eaeff9-98de-41db-ad4a-5648af098b44)
-![Screenshot (16)](https://github.com/user-attachments/assets/16caf932-bdb1-4d8e-89f4-d3d285a4ead9)
-![Screenshot (18)](https://github.com/user-attachments/assets/70b2aff4-e6bf-4e6e-a04a-acca4b71818a)
+![Screenshot (28)](https://github.com/user-attachments/assets/5d061013-e06e-4305-b42f-8c4d314d988c)
+![Screenshot (29)](https://github.com/user-attachments/assets/4e8fa7d7-d56d-475f-a706-6b4f9748832e)
+![Screenshot (30)](https://github.com/user-attachments/assets/20dc715c-bc46-4db5-9ce2-32549812b392)
+![Screenshot (31)](https://github.com/user-attachments/assets/8721b4eb-4307-4461-b082-0f90b37f93ec)
+![Screenshot (32)](https://github.com/user-attachments/assets/8635fd96-1a2a-4941-98a2-d6acb11abf88)
 
 # About the Project
 Powered by advanced technology, the SortMaster chatbot is developed to:
